@@ -1,4 +1,4 @@
-package com.deanveloper.projecteulerkotlin.zeroToTen
+package com.deanveloper.projecteulerkotlin.solutions
 
 import com.deanveloper.projecteulerkotlin.Solution
 
@@ -10,7 +10,7 @@ import com.deanveloper.projecteulerkotlin.Solution
  *
  * @author Dean
  */
-object SolutionOne : Solution {
+object Solution1 : Solution {
     override fun invoke(): Number {
         val sequence = (1 until 1000).asSequence().filter { it % 3 == 0 || it % 5 == 0 }
 

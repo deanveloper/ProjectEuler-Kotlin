@@ -1,12 +1,12 @@
 package com.deanveloper.projecteulerkotlin
 
-import com.deanveloper.projecteulerkotlin.zeroToTen.SolutionOne
+import com.deanveloper.projecteulerkotlin.solutions.Solution2
 
 /**
  * @author Dean
  */
 fun main(vararg args: String) {
-    println(SolutionOne())
+    println(Solution2())
 }
 
 interface Solution : () -> Number {
