@@ -16,20 +16,22 @@ fun runPrimeSieve(max: Int): SortedSet<Int> {
 
     // Create an array of longs which contain all numbers from 2 to the max.
     // Once finished, the map will have -1 in place for all non-prime numbers.
-    // All numbers will be offset by 2, as the array will start at "2"
+    // All numbers will be offset by 2, as the array will start at "2".
     val arr = BooleanArray(max - 1) { true }
 
     val primes = sortedSetOf<Int>()
 
-    // For every number in the map (remember, index is offset by 2)
+    // For every number in the map (remember, index is offset by 2).
     for(index in 0..max - 2) {
-        // If the number hasn't been marked as non-prime
+        // If the number hasn't been marked as non-prime.
         if(arr[index]) {
-            // Mark the number as prime
-            primes.add(index + 2)
+            val prime = index + 2
 
-            // Mark all multiples as non-prime
-            for(nonprime in index..max - 2 step index + 2) {
+            // Mark the number as prime.
+            primes.add(prime)
+
+            // Mark all multiples as non-prime. Optimized by starting at the prime's square.
+            for(nonprime in (prime * prime - 2)..(max - 2) step index + 2) {
                 arr[nonprime] = false
             }
         }
