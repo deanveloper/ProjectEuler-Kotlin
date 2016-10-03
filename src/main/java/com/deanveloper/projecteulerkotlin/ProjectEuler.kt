@@ -1,14 +1,14 @@
 package com.deanveloper.projecteulerkotlin
 
 import com.deanveloper.projecteulerkotlin.solutions.Solution2
+import com.deanveloper.projecteulerkotlin.solutions.Solution3
+import java.util.*
 
 /**
  * @author Dean
  */
 fun main(vararg args: String) {
-    println(Solution2())
+    println(Solution3())
 }
 
-interface Solution : () -> Number {
-    // I'll add some utility methods here at some point
-}
+interface Solution : () -> Number
