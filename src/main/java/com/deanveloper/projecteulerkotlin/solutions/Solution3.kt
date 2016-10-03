@@ -14,7 +14,7 @@ object Solution3 : Solution {
         val sqrt = LongMath.sqrt(num, RoundingMode.UP)
 
         if(sqrt > Int.MAX_VALUE) {
-            println("Fuck")
+            throw RuntimeException("Square root of number is larger than array max! Cannot run a sieve.")
         }
 
         val primes = runPrimeSieve(sqrt.toInt()).filter { num % it == 0L }
