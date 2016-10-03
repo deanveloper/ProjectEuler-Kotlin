@@ -12,24 +12,25 @@ import java.util.*
  * Runs a [sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
  * to find all primes up to a number.
  */
-fun runPrimeSieve(max: Long): SortedSet<Long> {
+fun runPrimeSieve(max: Int): SortedSet<Int> {
 
-    // Create a Map<Long, Boolean> which maps all numbers to true.
-    // Once finished, the boolean will indicate whether or not the number is considered prime.
-    val map: SortedMap<Long, Boolean> = sortedMapOf(*(2..max).map { it to true }.toTypedArray())
+    // Create an array of longs which contain all numbers from 2 to the max.
+    // Once finished, the map will have -1 in place for all non-prime numbers.
+    // All numbers will be offset by 2, as the array will start at "2"
+    val arr = BooleanArray(max - 1) { true }
 
-    val primes = sortedSetOf<Long>()
+    val primes = sortedSetOf<Int>()
 
-    // For every number in the map
-    for(num in 2..max) {
-        // If the number has not been marked as non-prime
-        if(map[num]!!) {
+    // For every number in the map (remember, index is offset by 2)
+    for(index in 0..max - 2) {
+        // If the number hasn't been marked as non-prime
+        if(arr[index]) {
             // Mark the number as prime
-            primes.add(num)
+            primes.add(index + 2)
 
             // Mark all multiples as non-prime
-            for(nonprime in num..max step num) {
-                map[nonprime] = false
+            for(nonprime in index..max - 2 step index + 2) {
+                arr[nonprime] = false
             }
         }
     }
